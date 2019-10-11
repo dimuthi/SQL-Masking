@@ -1,0 +1,19 @@
+CREATE PROCEDURE MaskTimeTillMillisecondsAtomicProcedure(
+	@time TIME(7) OUTPUT
+)
+AS
+BEGIN
+
+	DECLARE @cnt INT =1;
+	DECLARE @testTime VARCHAR(MAX);
+	DECLARE @hour VARCHAR(10)=CAST(FLOOR(RAND()*23) AS VARCHAR(10));
+	DECLARE @min VARCHAR(10)=CAST(FLOOR(RAND()*59) AS VARCHAR(10));
+	DECLARE @seconds VARCHAR(10)=CAST(FLOOR(RAND()*59) AS VARCHAR(10));
+	DECLARE @miliSeconds VARCHAR(10)=CAST(FLOOR(RAND()*1000) AS VARCHAR(10));
+
+
+	SET @time= CAST(@hour+':'+@min+':'+@seconds+':'+@miliSeconds AS TIME(7))
+	
+END
+GO
+
